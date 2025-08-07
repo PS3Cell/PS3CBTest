@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PS3HEN Logos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #111; color: white; }
+        .coldboot-container { display: block; width: 100%; }
+        .coldboot-item { display: inline-block; margin: 10px; padding: 10px; border: 1px solid #fff; width: 200px; text-align: center; }
+        img { width: 180px; height: 100px; }
+        a { text-decoration: none; color: cyan; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>PS3HEN Logos Collection</h1>
+    <div class="coldboot-container" id="coldboot-list">
+        <!-- Coldboot entries will be inserted here -->
+    </div>
+
+    <script>
+        var githubPkgBaseUrl = "https://raw.githubusercontent.com/PPPWnedPS3Dev/PS3HENIcons.mirror/main/";
+        var githubImgBaseUrl = "https://raw.githubusercontent.com/PPPWnedPS3Dev/PS3HENLogos.mirror/main/";
+
+        var coldbootHTML = "";
+        for (var i = 1; i <= 13; i++) { // Limit to 13 existing files
+            var num = "o" + (i < 10 ? "0" + i : i); // Ensure correct 'o0X' for 1-9 and 'oXX' for 10-13
+            var pkgUrl = githubPkgBaseUrl + "Logo_HEN_O" + (i < 10 ? "0" + i : i) + ".pkg";
+            var imgUrlPng = githubImgBaseUrl + "logo_hen_" + num + ".png";
+            
+            coldbootHTML += '<div class="coldboot-item">' +
+                '<img src="' + imgUrlPng + '" alt="Coldboot ' + num.toUpperCase() + '">' +
+                '<a href="' + pkgUrl + '">Download Coldboot ' + num.toUpperCase() + '</a>' +
+                '</div>';
+        }
+        document.getElementById("coldboot-list").innerHTML = coldbootHTML;
+    </script>
+</body>
+</html>

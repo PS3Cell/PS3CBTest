@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogWheel Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #eaeaea;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #000;
+            color: #eaeaea;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        header nav ul li a {
+            color: #eaeaea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+        .filter-group label {
+            margin-right: 10px;
+            color: #b0b0b0;
+        }
+        .filter-group select, .filter-group input {
+            background-color: #444;
+            border: 1px solid #555;
+            color: #eaeaea;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        main {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        h2 {
+            text-align: center;
+            color: #eaeaea;
+        }
+        .homebrew-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .homebrew-card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .homebrew-card:hover {
+            transform: translateY(-10px);
+        }
+        .homebrew-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .homebrew-info h3 {
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+        .homebrew-info p {
+            color: #b0b0b0;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #000;
+            color: #eaeaea;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CogWheel - PS3 Homebrew</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+        </div>
+    </div>
+
+    <main>
+        <h2>Explore Homebrew Applications</h2>
+        <p>Here you can find various homebrew applications for your PS3.</p>
+        <div class="homebrew-list">
+            <!-- MultiMAN MOD -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=24&fid=2412" download="MultiMAN_MOD.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>MultiMAN MOD</h3>
+                    <p>multiMAN MOD combines Open Manager, mmOS File Manager. multiMAN does more than just backup games to your PS3.</p>
+                </div>
+            </a>
+
+            <!-- WebMAN MOD -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=310&fid=2426" download="WebMAN_MOD.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>WebMAN MOD</h3>
+                    <p>WebMAN MOD is a modified version of webMAN with many additional features, allowing you to manage games and files directly from your PS3.</p>
+                </div>
+            </a>
+
+            <!-- IrisMAN -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=250&fid=2409" download="IrisMAN.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>IrisMAN</h3>
+                    <p>IrisMAN is a PS3 game manager based on Iris Manager with improved GUI, increased stability, and added features.</p>
+                </div>
+            </a>
+
+            <!-- Movian (Showtime) -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=196&fid=2421" download="Movian.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>Movian (Showtime)</h3>
+                    <p>Movian is a media player that allows you to play videos, music, and view photos on your PS3, with support for streaming and plugins.</p>
+                </div>
+            </a>
+
+            <!-- SEN Enabler -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=283&fid=2259" download="SEN_Enabler.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>SEN Enabler (FOR CFW ONLY!)</h3>
+                    <p>SEN Enabler allows you to safely access PlayStation Network (PSN) on a custom firmware (CFW) by spoofing your firmware version.</p>
+                </div>
+            </a>
+
+            <!-- RetroArch -->
+            <a href="https://xbins.org/libretro/stable/1.9.0/playstation/ps3/RetroArch.PS3.CEX.PS3.pkg" download="RetroArch_CEX.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>RetroArch</h3>
+                    <p>RetroArch is a multi-system emulator that enables you to play classic games from various consoles on your PS3.</p>
+                </div>
+            </a>
+			
+			<!-- UltimateToolbox -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="ULTTOOLBOXBETA.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>Ultimate Toolbox (4.89-4.91)</h3>
+                    <p>This is a collection of new and old mods and patches/ A lot made by DeViL303 and some gathered from all over the PS3 scene. This Toolbox makes it easier to apply lots of common firmware patches and visual XMB modifications and more.</p>
+                </div>
+            </a>
+			
+			<!-- ManaGuZ [Nightly-Release] -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="ManaGunz.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>ManaGuZ [Nightly-Release]</h3>
+                    <p>This is another Backup Manager made from the ground. It allows you to mount a backup stored in your USB device or in the internal hdd as a virtual Blue-Ray using 4 differents UI : "List", "Grid", "XMB" and "Flow".</p>
+                </div>
+            </a>
+			
+			<!-- File Manager [Nightly-Release] -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="FileManager.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>File Manager [Nightly-Release]</h3>
+                    <p>Description Coming SOON!</p>
+                </div>
+            </a>
+			
+			<!-- PKGi -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="PKGi.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>PKGi</h3>
+                    <p>PKGi PS3 is a PlayStation 3 port of PSVita pkgi.</p>
+                </div>
+            </a>
+			
+			<!-- PS3UNLCKHDDSPC -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="PS3UnlockHDDSpace.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>PS3 Unlock HDD Space</h3>
+                    <p>This tool by 3141card unlocks up to 8% extra of the total space on the internal HDD of the PS3. Run it again to restore the original settings if necessary.</p>
+                </div>
+            </a>
+			
+			<!-- PSNPatch -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="PSNPatch.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>PSN Patch</h3>
+                    <p>This is a small app made by KW and inspired in the works of stoker25 (psidpatch) and user (psnope).</p>
+                </div>
+            </a>
+			
+			<!-- ReActPSN -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="ReActPSN.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>ReActPSN</h3>
+                    <p>reActPSN is a backup launcher and OFFLINE PSN license generator. This tool lets you backup and restore the licenses of your games without any private information. It can fix selfs and edats, and convert PS2 isos to PS2 Classics.</p>
+                </div>
+            </a>
+			
+			<!-- RebugToolbox -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="RebugToolbox.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>Rebug Toolbox</h3>
+                    <p>Rebug Toolbox is an application designed to complete the full function of REBUG REX EDITION</p>
+                </div>
+            </a>
+			
+			<!-- prepISO (NTFS/exFAT) -->
+			<a href="https://github.com/aldostools/Resources/releases/download/XMB_Randomizers/Ultimate_Toolbox_for_4.89-4.91_BETA.pkg" download="prepISO (NTFS/exFAT).zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>prepISO (NTFS/exFAT)</h3>
+                    <p>Description Coming SOON!</p>
+                </div>
+            </a>
+			
+			<!-- ApolloSaveTool -->
+            <a href="https://store.brewology.com/get/homebrew.php?id=321&fid=2399" download="ApolloSaveTool.zip" class="homebrew-card" style="text-decoration: none; color: inherit;">
+                <div class="homebrew-info">
+                    <h3>Apollo Save Tool</h3>
+                    <p>Apollo Save Tool is an application to manage save-game files on the PlayStation 3.The apollo-ps3 homebrew app allows to download, unlock, patch and resign save-game files directly on your PS3.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CogWheel. All rights reserved.</p>
+    </footer>
+</body>
+</html>

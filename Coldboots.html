@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PS3 Coldboots</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #111; color: white; }
+        .coldboot-container { display: block; width: 100%; }
+        .coldboot-item { display: inline-block; margin: 10px; padding: 10px; border: 1px solid #fff; width: 200px; text-align: center; }
+        img { width: 180px; height: 100px; }
+        a { text-decoration: none; color: cyan; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>PS3 Coldboots Collection</h1>
+    <div class="coldboot-container" id="coldboot-list">
+        <!-- Coldboot entries will be inserted here -->
+    </div>
+
+    <script>
+        var githubPkgBaseUrl = "http://raw.githubusercontent.com/PPPWnedPS3Dev/PS3Coldboots.mirror/main/";
+        var githubImgBaseUrl = "http://raw.githubusercontent.com/PPPWnedPS3Dev/PS3ColdbootsIcons.mirror/main/";
+
+        var coldbootHTML = "";
+        for (var i = 1; i <= 300; i++) {
+            coldbootHTML += '<div class="coldboot-item">' +
+                '<img src="' + githubImgBaseUrl + i + '.jpg" alt="Coldboot ' + i + '">' +
+                '<a href="' + githubPkgBaseUrl + i + '.pkg">Download Coldboot ' + i + '</a>' +
+                '</div>';
+        }
+        document.getElementById("coldboot-list").innerHTML = coldbootHTML;
+    </script>
+</body>
+</html>

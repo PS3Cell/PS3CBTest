@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CogWheel - PS3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .store-header {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: #222;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+        }
+        .nav-links a {
+            margin-left: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 80px;
+            z-index: 999;
+            overflow-y: auto;
+        }
+        .menu-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #bbb;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu-links a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        .content {
+            margin-left: 250px;
+            margin-top: 120px;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .content-box {
+            background-color: #2a2a2a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #222;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header class="store-header">
+        <div class="header-content">
+            <div class="logo">
+                <img id="header-icon" src="Windows_CogWheel_LOGO_v0.5.0.png" alt="CogWheel Icon">
+                CogWheel
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <div class="menu-links">
+		    <a href="Homebrew.html">Homebrew</a>
+			<a href="Firmwares.html">Firmwares</a>
+			<a href="Coldboots.html">ColdBoots</a>
+	        <a href="PS3HENLogos.html">PS3HEN Logos</a>
+            <a href="FreeStores.html">Free Stores</a>
+			<a href="https://cellbreakers.github.io/test.html/">Games</a>
+            <a href="emulators.html">Emulators</a>
+            <a href="PS3JailbreakSites.html">PS3 Jailbreaking Sites</a>
+            <a href="License.html">License</a>
+        </div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 CellBreakers. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

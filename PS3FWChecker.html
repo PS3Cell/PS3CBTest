@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PS3 CFW & HEN Compatibility Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    select, input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PS3 CFW & HEN Compatibility Checker</h1>
+
+  <label for="serial">Select Your PS3 Serial Number:</label><br>
+  <select id="serial">
+    <option value="">-- Select Serial --</option>
+    <optgroup label="PS3 Slim">
+      <option value="CECH-20xxA">CECH-20xxA</option>
+      <option value="CECH-20xx">CECH-20xx</option>
+      <option value="CECH-21xxA">CECH-21xxA</option>
+      <option value="CECH-21xxB">CECH-21xxB</option>
+      <option value="CECH-25xxA">CECH-25xxA</option>
+      <option value="CECH-25xxB">CECH-25xxB</option>
+      <option value="CECH-30xxA">CECH-30xxA</option>
+      <option value="CECH-30xxB">CECH-30xxB</option>
+    </optgroup>
+    <optgroup label="PS3 Phat">
+      <option value="CECHA">CECHA**</option>
+      <option value="CECHB">CECHB**</option>
+      <option value="CECHC">CECHC**</option>
+      <option value="CECHE">CECHE**</option>
+      <option value="CECHG">CECHG**</option>
+      <option value="CECHH">CECHH**</option>
+      <option value="CECHJ">CECHJ**</option>
+      <option value="CECHK">CECHK**</option>
+      <option value="CECHL">CECHL**</option>
+      <option value="CECHM">CECHM**</option>
+      <option value="CECHP">CECHP**</option>
+      <option value="CECHQ">CECHQ**</option>
+    </optgroup>
+    <optgroup label="PS3 Super Slim">
+      <option value="CECH-40A">CECH-40**A</option>
+      <option value="CECH-40B">CECH-40**B</option>
+      <option value="CECH-40C">CECH-40**C</option>
+      <option value="CECH-42A">CECH-42**A</option>
+      <option value="CECH-42B">CECH-42**B</option>
+      <option value="CECH-42C">CECH-42**C</option>
+      <option value="CECH-43A">CECH-43**A</option>
+      <option value="CECH-43C">CECH-43**C</option>
+    </optgroup>
+  </select><br>
+
+  <label for="fw">Enter Your PS3 OFW Version (e.g. 4.91):</label><br>
+  <input type="text" id="fw" placeholder="e.g., 4.91"><br>
+
+  <button id="checkBtn">Check Compatibility</button>
+
+  <div id="result"></div>
+
+  <script>
+    window.onload = function () {
+      document.getElementById("checkBtn").addEventListener("click", function () {
+        var serial = document.getElementById("serial").value;
+        var fw = parseFloat(document.getElementById("fw").value);
+        var result = "";
+        var icon = "❌";
+
+        if (!serial || isNaN(fw)) {
+          document.getElementById("result").innerHTML = "Please select a serial number and enter a valid firmware version. ❓";
+          return;
+        }
+
+        var cfwModels = [
+          "CECHA", "CECHB", "CECHC", "CECHE", "CECHG", "CECHH", "CECHJ",
+          "CECHK", "CECHL", "CECHM", "CECHP", "CECHQ",
+          "CECH-20xxA", "CECH-20xx", "CECH-21xxA", "CECH-21xxB"
+        ];
+
+        var semiCFWModels = ["CECH-25xxA", "CECH-25xxB"];
+
+        var henOnlyModels = [
+          "CECH-30xxA", "CECH-30xxB",
+          "CECH-40A", "CECH-40B", "CECH-40C",
+          "CECH-42A", "CECH-42B", "CECH-42C",
+          "CECH-43A", "CECH-43C"
+        ];
+
+        var henCompatible = (fw >= 4.80 && fw <= 4.82) || (fw >= 4.83 && fw <= 4.92);
+
+        if (cfwModels.indexOf(serial) !== -1) {
+          result = "✅ Your PS3 supports CFW on all firmware versions, and PS3HEN on " + fw;
+          icon = "✔️";
+        } else if (semiCFWModels.indexOf(serial) !== -1) {
+          if (fw <= 4.89) {
+            result = "⚠️ May support CFW (check minver), fully supports PS3HEN.";
+            icon = "✔️";
+          } else {
+            if (henCompatible) {
+              result = "✅ CFW not possible, but PS3HEN works fine on " + fw;
+              icon = "✔️";
+            } else {
+              result = "❌ Only supports HEN. Wait for support or downgrade.";
+              icon = "❌";
+            }
+          }
+        } else if (henOnlyModels.indexOf(serial) !== -1) {
+          if (henCompatible) {
+            result = "❌ No CFW support. ✅ PS3HEN is fully supported on firmware " + fw;
+            icon = "✔️";
+          } else {
+            result = "⚠️ Your PS3 is too new or updated. Update to a supported HEN version.";
+            icon = "❌";
+          }
+        } else {
+          result = "Unknown model. Please check your serial.";
+          icon = "❓";
+        }
+
+        document.getElementById("result").innerHTML = result + " " + icon;
+      });
+    };
+  </script>
+
+</body>
+</html>

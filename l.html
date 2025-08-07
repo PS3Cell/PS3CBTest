@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>PS3 Minimum Firmware Checker</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #111; color: #eee; }
+  h1 { color: #00ff99; }
+  .result { margin-top: 20px; font-size: 1.2em; }
+</style>
+</head>
+<body>
+  <h1>PS3 Firmware Version Checker</h1>
+  <p>Detects your PS3 firmware version and suggests the minimum official firmware version for your console.</p>
+  <button id="checkBtn">Check My PS3 Firmware</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const checkBtn = document.getElementById('checkBtn');
+    const resultDiv = document.getElementById('result');
+
+    // Simplified minimum firmware data for common PS3 models (example)
+    const minFirmwareData = [
+      { model: 'CECH-2000', minOFW: '3.50' },
+      { model: 'CECH-2500', minOFW: '3.56' },
+      { model: 'CECH-3000', minOFW: '3.70' },
+      { model: 'CECH-4000', minOFW: '4.21' },
+      { model: 'CECH-4200', minOFW: '4.46' },
+      { model: 'CECH-7000', minOFW: '4.55' },
+      { model: 'Other', minOFW: '3.15' } // fallback
+    ];
+
+    function getFirmwareFromUA() {
+      // User Agent example: Mozilla/5.0 (PLAYSTATION 3; 4.82)
+      const ua = navigator.userAgent;
+      const regex = /PLAYSTATION 3; ([\d\.]+)/i;
+      const match = ua.match(regex);
+      if (match) return match[1];
+      return null;
+    }
+
+    // Since we cannot get model from UA, ask user input to select model.
+    function getModelFromUser() {
+      const models = minFirmwareData.map(x => x.model).filter(m => m !== 'Other');
+      let model = prompt("Enter your PS3 Model (e.g. CECH-2000, CECH-2500, CECH-3000, CECH-4000, CECH-4200, CECH-7000):", "CECH-2000");
+      if (!model || !models.includes(model)) {
+        alert("Model unknown or invalid, defaulting to 'Other'");
+        model = "Other";
+      }
+      return model;
+    }
+
+    checkBtn.onclick = () => {
+      const fw = getFirmwareFromUA();
+      if (!fw) {
+        resultDiv.textContent = "Could not detect firmware version from your browser. Are you on a PS3 browser?";
+        return;
+      }
+
+      const model = getModelFromUser();
+      const minOFW = minFirmwareData.find(x => x.model === model)?.minOFW || 'Unknown';
+
+      let msg = `Detected firmware version: ${fw}\n`;
+      msg += `Selected PS3 model: ${model}\n`;
+      msg += `Minimum official firmware (OFW) for your model: ${minOFW}\n`;
+
+      // Compare detected FW with min OFW (simple numeric comparison)
+      if (parseFloat(fw) >= parseFloat(minOFW)) {
+        msg += "Your firmware is at or above the minimum OFW.";
+      } else {
+        msg += "Your firmware is below the minimum OFW.";
+      }
+
+      // Display result with line breaks
+      resultDiv.innerHTML = msg.replace(/\n/g, '<br/>');
+    };
+  </script>
+</body>
+</html>
